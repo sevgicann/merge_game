@@ -97,6 +97,10 @@ class _AnimatedTileState extends State<AnimatedTile>
       case 512: return const Color(0xffedc850);
       case 1024: return const Color(0xffedc53f);
       case 2048: return const Color(0xffedc22e);
+      case 4096: return const Color.fromARGB(255, 195, 171, 73);
+      case 8192: return const Color.fromARGB(255, 164, 149, 91);
+      case 16384: return const Color.fromARGB(255, 88, 80, 46);
+      case 32768: return const Color.fromARGB(255, 56, 59, 5);
 
     }
 

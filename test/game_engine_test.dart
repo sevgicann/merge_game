@@ -393,6 +393,40 @@ test("state should create new board reference", () {
 
 });
 
+test("AI stress test - max tile reached", () {
+
+  final engine = GameEngine();
+  final ai = AIPlayer(engine);
+
+  var state = engine.newGame();
+
+  int maxTile = 0;
+  int moves = 0;
+
+  while (!state.gameOver && moves < 5000) {
+
+    final move = ai.findBestMove(state);
+
+    if (move == null) break;
+
+    state = engine.step(state, move);
+
+    for (var row in state.board) {
+      for (var v in row) {
+        if (v > maxTile) maxTile = v;
+      }
+    }
+
+    moves++;
+  }
+
+  print("Moves: $moves");
+  print("Max tile reached: $maxTile");
+
+  expect(maxTile, greaterThanOrEqualTo(64));
+
+});
+
   });
 
 }

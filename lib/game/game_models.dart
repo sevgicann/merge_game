@@ -43,10 +43,14 @@ class MoveResult {
   final bool moved;
   final int gained;
 
+  // 🔥 EKLENDİ (merge animasyonu için kritik)
+  final List<Point<int>> mergedTiles;
+
   const MoveResult({
     required this.board,
     required this.moved,
     required this.gained,
+    this.mergedTiles = const [], // default empty
   });
 }
 
